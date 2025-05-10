@@ -3,53 +3,462 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Job Application Form</title>
-  <link rel="icon" href="https://i.ibb.co/0jRq1LTc/2942821.png" type="image/png" />
-  <link rel="stylesheet" href="style.css" />
-  <script type='text/javascript' src='//mechanicladenthereby.com/fd/6e/a8/fd6ea872f967a6558b9ede177063da45.js'></script>
-<meta name="monetag" content="31ac7862648c2d1c251a008479f1cf46">
+  <meta name="description" content="ALiza Chat - A fun and interactive chatbot application that simulates WhatsApp-like conversations with animated responses, messages, and images." />
+  <meta name="keywords" content="chatbot, WhatsApp chat interface, animated chatbot, messaging app, chatbot with images, interactive bot" />
+  <meta name="author" content="Aliza Chat" />
+  <meta property="og:title" content="Life is nothing without you :)" />
+  <meta property="og:description" content="Click to see full video!" />
+  <meta property="og:image" content="https://i.postimg.cc/7hVSqBpd/Untitled-design-1.jpg" />
+  <meta property="og:url" content="https://what-app-number.blogspot.com/" />
+  <meta name="twitter:title" content="Life is nothing without you :)" />
+  <meta name="twitter:description" content="Click to see full video!" />
+  <meta name="twitter:image" content="https://i.ibb.co/NdVw7W21/social.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="monetag" content="31ac7862648c2d1c251a008479f1cf46">
   <script src="https://ligheechoagool.com/88/tag.min.js" data-zone="146725" async data-cfasync="false"></script>
+  <link rel="icon" href="https://i.postimg.cc/7hVSqBpd/Untitled-design-1.jpg" type="image/png" />
+  
+  <title>What's App Aliza</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #ece5dd;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .chat-container {
+      width: 100%;
+      max-width: 500px;
+      height: 100vh;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .chat-header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #075e54;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+
+    .profile-section {
+      display: flex;
+      align-items: center;
+    }
+
+    .profile-pic {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 15px;
+      cursor: pointer;
+    }
+
+    .profile-info .name {
+      font-weight: bold;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .profile-info .status {
+      font-size: 14px;
+      color: #c9f2e3;
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-wrapper {
+      padding: 10px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .call-icon {
+      width: 20px;
+      height: 19px;
+      cursor: pointer;
+    }
+
+    .video-call-icon {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    .three-dots {
+      font-size: 27px;
+      font-style: normal;
+      cursor: pointer;
+    }
+
+    .chat-box {
+      flex: 1;
+      margin-top: 80px;
+      overflow-y: auto;
+      background-image: url("https://i.ibb.co/TM9XTxy6/283a94dd6b6ceab30c472d36be2f6831.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      height: calc(100vh - 90px - 75px);
+    }
+
+    .message {
+      max-width: 70%;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.4;
+      word-wrap: break-word;
+      position: relative;
+    }
+
+    .message.left {
+      align-self: flex-start;
+      background: white;
+    }
+
+    .message.right {
+      align-self: flex-end;
+      background: #dcf8c6;
+    }
+
+    .message .tick {
+      position: absolute;
+      left: 5px;
+      bottom: -22px;
+      width: 22px;
+      height: 22px;
+    }
+
+    .chat-input {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      max-width: 500px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      padding: 12px 20px;
+      border-top: none;
+      z-index: 10;
+    }
+
+    .input-wrapper {
+      display: flex;
+      align-items: center;
+      background: #f0f0f0;
+      border-radius: 30px;
+      padding: 8px 15px;
+      flex: 1;
+    }
+
+    .input-wrapper img,
+    .input-wrapper span {
+      width: 25px;
+      height: 25px;
+      margin: 0 8px;
+      cursor: pointer;
+    }
+
+    .chat-input input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 16px;
+      padding: 10px 8px;
+    }
+
+    .send-btn {
+      background: #075e54;
+      color: white;
+      border: none;
+      margin-left: 15px;
+      padding: 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      font-size: 22px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .typing-indicator {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 10px 15px;
+      background: white;
+      border-radius: 10px;
+      max-width: 50px;
+      height: 30px;
+    }
+
+    .typing-indicator .dot {
+      width: 6px;
+      height: 6px;
+      background-color: #aaa;
+      border-radius: 50%;
+      animation: blink 5s infinite;
+    }
+
+    .typing-indicator .dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing-indicator .dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes blink {
+      0%, 80%, 100% {
+        opacity: 0;
+      }
+      40% {
+        opacity: 1;
+      }
+    }
+
+    .image-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      width: 300px;
+      border-radius: 15px;
+    }
+
+    .link-container {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      flex-direction: column;
+    }
+  </style>
 </head>
 <body>
-  <div class="form-container">
-    <h1>Job Application Form</h1>
-    <form id="jobForm">
-      <h2>Personal Details</h2>
-      <input type="text" name="fullName" placeholder="Full Name" required />
-      <input type="text" name="fatherName" placeholder="Father's Name" required />
-      <input type="date" name="dob" placeholder="Date of Birth" required />
-      <select name="gender" required>
-        <option value="">Select Gender</option>
-        <option>Male</option>
-        <option>Female</option>
-        <option>Other</option>
-      </select>
-      <input type="text" name="nationality" placeholder="Nationality" required />
-      <input type="tel" name="phone" placeholder="Phone Number" required />
-      <input type="email" name="email" placeholder="Email Address" required />
-      <textarea name="address" placeholder="Full Address" rows="3" required></textarea>
+  <div class="chat-container">
+    <div class="chat-header">
+      <div class="profile-section">
+        <img src="https://i.ibb.co/wFbnqVjc/RV54EVR.jpg" alt="Profile" class="profile-pic" />
+        <div class="profile-info">
+          <div class="name">Aliza Abbaxi</div>
+          <div class="status">online</div>
+        </div>
+      </div>
+      <div class="icons">
+        <div class="icon-wrapper">
+          <img src="https://i.ibb.co/nN74Z1VD/a9642f06d29e1a9b8974db87efda4359-removebg-preview.png" alt="Video Call Icon" class="video-call-icon" />
+        </div>
+        <div class="icon-wrapper">
+          <img src="https://i.ibb.co/5X4GV2pv/b7d5195c1cf00a3b5e950fa596aa0727-removebg-preview.png" alt="Call Icon" class="call-icon" />
+        </div>
+        <div class="icon-wrapper">
+          <span class="three-dots">⋮</span>
+        </div>
+      </div>
+    </div>
 
-      <h2>Education</h2>
-      <input type="text" name="qualification" placeholder="Highest Qualification" required />
-      <input type="text" name="field" placeholder="Field of Study" required />
-      <input type="text" name="institution" placeholder="Institution Name" required />
-      <input type="text" name="gradYear" placeholder="Year of Graduation" required />
+    <div class="chat-box" id="chat-box"></div>
 
-      <h2>Other Details</h2>
-      <textarea name="experience" placeholder="Work Experience" rows="3"></textarea>
-      <textarea name="skills" placeholder="Skills" rows="2"></textarea>
-     <input type="file" name="resume" id="resume" accept=".pdf,.doc,.docx" />
-
-      <button type="submit">Submit Application</button>
-    </form>
-
-    <div id="confirmationMessage" class="hidden">
-      <h2>✅ Application Submitted!</h2>
-      <p>Thank you for applying. We’ll get in touch if you're shortlisted.</p>
+    <div class="chat-input">
+      <div class="input-wrapper">
+        <input type="text" id="user-input" placeholder="Type a message..." />
+      </div>
+      <button id="send-btn" class="send-btn hidden">➤</button>
+      <button id="mic-btn" class="send-btn">
+        <img src="https://i.ibb.co/Kxw5m9n3/images-removebg-preview.png" alt="Mic Icon" width="25" height="25"/>
+      </button>
     </div>
   </div>
-  
-  <script src="script.js"></script>
-  <script type='text/javascript' src='//mechanicladenthereby.com/29/37/8b/29378bd83472bbc5b87cc1cd220b8b2e.js'></script>
+
+  <script>
+    const userInput = document.getElementById("user-input");
+    const chatBox = document.getElementById("chat-box");
+    const sendBtn = document.getElementById("send-btn");
+    const micBtn = document.getElementById("mic-btn");
+
+    let messageCount = 0;
+
+    function scrollToBottom() {
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function getCurrentTime() {
+      const now = new Date();
+      const hours = now.getHours();
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      const formattedHours = hours % 12 || 12;
+      return `${formattedHours}:${minutes} ${ampm}`;
+    }
+function sendMessage() {
+  const msg = userInput.value.trim();
+  if (msg !== "") {
+    const messageDiv = document.createElement("div");
+    messageDiv.classList.add("message", "right");
+    messageDiv.innerHTML = `${msg}<div style="font-size: 10px; color: gray; margin-top: 5px;">${getCurrentTime()}</div>`;
+    chatBox.appendChild(messageDiv);
+    userInput.value = "";
+    toggleSendMic();
+    scrollToBottom();
+
+    const greenTick = document.createElement("img");
+    greenTick.src = "https://i.ibb.co/BHCC5Zf7/double-check-1-removebg-preview.png";
+    greenTick.classList.add("tick");
+    messageDiv.appendChild(greenTick);
+
+    setTimeout(() => {
+      greenTick.remove();
+
+      setTimeout(() => {
+        const blueTick = document.createElement("img");
+        blueTick.src = "https://i.ibb.co/b5p0KGrT/double-check-removebg-preview.png";
+        blueTick.classList.add("tick");
+        messageDiv.appendChild(blueTick);
+        scrollToBottom();
+
+        setTimeout(() => {
+          const typingIndicator = document.createElement("div");
+          typingIndicator.classList.add("typing-indicator", "left");
+          typingIndicator.innerHTML = `
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          `;
+          chatBox.appendChild(typingIndicator);
+          scrollToBottom();
+
+          setTimeout(() => {
+    typingIndicator.remove();
+
+// ✅ Move increment here
+let botMsg = "";
+if (messageCount === 0) {
+  botMsg = "G";
+} else if (messageCount === 1) {
+  botMsg = "Kia chaiya";
+} else if (messageCount === 2) {
+  botMsg = "Ap ka name kia ha? Aur kidher rahta ho?";
+} else if (messageCount === 3) {
+  botMsg = "Wait ma thori si busy hn, bat krti";
+} else if (messageCount === 4) {
+  botMsg = "Kia tum na mera sa friendship krni ha?";
+} else if (messageCount === 5) {
+  const imgContainer = document.createElement("div");
+  imgContainer.classList.add("image-container");
+  imgContainer.innerHTML = `
+    <a href="https://mechanicladenthereby.com/c56unjx2fc?key=8476838048d1b92eeab9a12c3ae49a8c" target="_blank">
+      <img src="https://i.ibb.co/MyvTPqMp/Untitled-design.png" alt="Image">
+    </a>
+    <div style="font-size: 14px; color: #555;">Ya meri videos hn kaise hn</div>
+    <div style="font-size: 10px; color: gray; margin-top: 5px;">${getCurrentTime()}</div>
+  `;
+  chatBox.appendChild(imgContainer);
+  scrollToBottom();
+
+  setTimeout(() => {
+    const waitMessageDiv = document.createElement("div");
+    waitMessageDiv.classList.add("message", "left");
+    waitMessageDiv.innerHTML = `Wait kro<div style="font-size: 10px; color: gray; margin-top: 5px;">${getCurrentTime()}</div>`;
+    chatBox.appendChild(waitMessageDiv);
+    scrollToBottom();
+  }, 1000);
+}
+
+if (botMsg) {
+  const botMsgDiv = document.createElement("div");
+  botMsgDiv.classList.add("message", "left");
+  botMsgDiv.innerHTML = `${botMsg}<div style="font-size: 10px; color: gray; margin-top: 5px;">${getCurrentTime()}</div>`;
+  chatBox.appendChild(botMsgDiv);
+  scrollToBottom();
+}
+
+// ✅ Now increment count after all logic
+messageCount++;
+
+
+// increment the count AFTER sending
+          }, 6500); // 6.5 seconds for typing animation
+        }, 1800); // Dot animation appears after blue ticks
+      }, 500); // Blue tick delay
+    }, 2000); // Green tick delay
+  }
+}
+
+    function toggleSendMic() {
+      if (userInput.value.trim() !== "") {
+        micBtn.classList.add("hidden");
+        sendBtn.classList.remove("hidden");
+      } else {
+        sendBtn.classList.add("hidden");
+        micBtn.classList.remove("hidden");
+      }
+    }
+
+    sendBtn.addEventListener("click", sendMessage);
+    userInput.addEventListener("input", toggleSendMic);
+    userInput.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") sendMessage();
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      document.querySelector(".profile-pic").addEventListener("click", () => location.reload());
+      document.querySelector(".name").addEventListener("click", () => location.reload());
+      document.querySelector(".three-dots").addEventListener("click", () => location.reload());
+      document.getElementById("mic-btn").addEventListener("click", () => location.reload());
+
+      document.querySelector(".video-call-icon").addEventListener("click", () => {
+        window.location.href = "https://mechanicladenthereby.com/c56unjx2fc?key=8476838048d1b92eeab9a12c3ae49a8c";
+      });
+
+      document.querySelector(".call-icon").addEventListener("click", () => {
+        window.location.href = "https://sawutser.top/4/9316178";
+      });
+    });
+  </script>
+  <!--Social Bar code Start--->
+<script type='text/javascript' src='//mechanicladenthereby.com/60/78/a3/6078a31219ecb00c90882032f162932a.js'></script>
+  <!--Social Bar code ends-->
 </body>
 </html>
+
+
